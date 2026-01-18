@@ -78,7 +78,9 @@ class OwnerController {
 	private static final String MESSAGE = "message";
 
 	@PostMapping("/owners/new")
-	public String processCreationForm(@Valid Owner owner, BindingResult result, RedirectAttributes redirectAttributes) {
+	public String processCreationForm(@Valid Owner owner, BindingResult result, RedirectAttributes
+		redirectAttributes)
+		{
     if (result.hasErrors()) {
         redirectAttributes.addFlashAttribute(ERROR, "There was an error in creating the owner.");
         return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
@@ -86,7 +88,7 @@ class OwnerController {
     this.owners.save(owner);
     redirectAttributes.addFlashAttribute(MESSAGE, "New Owner Created");
     return "redirect:/owners/" + owner.getId();
-}
+    }
 
 
 	@GetMapping("/owners/find")
